@@ -2,16 +2,21 @@
 hero_hp = 150
 hero_attack = 10
 hero_gold = 0
+hero_defense = 5
 
 # enemy
 enemy_hp = 150
-enemy_attack = 25
+enemy_attack = 40
 
 def attack_enemy(enemy_hp, damage):
     return enemy_hp - damage
 
-def attack_hero(hero_hp, damage):
-    return hero_hp - damage
+def attack_hero(hero_hp, damage, defense):
+    final_damage = damage - defense
+    if final_damage < 0:
+        final_damage = 0
+    return hero_hp - final_damage
+
 
 def gold_hero(hero_gold):
     return hero_gold + 5
@@ -19,7 +24,10 @@ def gold_hero(hero_gold):
 sample_items = {
     "Cannon Ball +3 atk ": {"price": 20, "attack": 3},
     "Heavy Ball +10 atk ": {"price": 75, "attack": 10},
-    "Med Kit +5 hp":{"price":25,"hp":5}
+    "Basic Armor +3 def": {"price":35, "defense":3},
+    "Body Plate +10 def": {"price":100, "defense":10},
+    "Med Kit +5 hp":{"price":25,"hp":5},
+    "Advanced Healing kit +20 hp":{"price":80,"hp":20}
 }
 
 inventory = []
@@ -56,7 +64,7 @@ while True:
     # ATTACK
     if action == "1":
         enemy_hp = attack_enemy(enemy_hp, hero_attack)
-        hero_hp = attack_hero(hero_hp, enemy_attack)
+        hero_hp = attack_hero(hero_hp, enemy_attack, hero_defense)
 
         if hero_hp <= 0:
             print("💀 You lost!")
@@ -101,6 +109,9 @@ while True:
                     if "attack" in item_data:
                         hero_attack += item_data["attack"]
 
+                    if "defense" in item_data:
+                        hero_defense += item_data["defense"]
+
                     #if the item is hp attributes item will update the hp
                     if "hp" in item_data:
                         hero_hp += item_data["hp"]
@@ -119,6 +130,8 @@ while True:
 
     elif action == "4":
         print("Your Attack: ",hero_attack)
+        print("Your defense: ", hero_defense)
+
         print("Enemy Attack: ",enemy_attack)
 
     
