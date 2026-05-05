@@ -73,8 +73,14 @@ while True:
         enemy_hp = attack_enemy(enemy_hp, hero_attack)
         hero_hp = attack_hero(hero_hp, enemy_attack, hero_defense)
 
-        if hero_hp <= 0:
-            print("💀 You lost!")
+        if hero_hp <= 0 and enemy_hp <= 0:
+            print("DRAW")
+        
+        elif hero_hp <= 0:
+            print("\033[31mYou Lost\033[0m")
+        
+        elif enemy_hp <= 0:
+            print("\033[93mYou Won\033[0m")
             break
 
     # FARM
