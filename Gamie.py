@@ -49,7 +49,11 @@ while True:
     elif action == "2":
         hero_gold = gold_hero(hero_gold)
 
+    elif action == "3":
+        print("Welcome to the Shop")
+
     # RUN
     elif action == "3":
         print("You ran away!")
         break
+
