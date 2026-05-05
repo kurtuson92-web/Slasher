@@ -43,12 +43,19 @@ game_title = "\033[36m"+"""
 
 hp_bar = "\033[32m┃\033[m"
 e_hp = "\033[31m┃\033[0m"
+border = "\033[36m=\033[0m"
 
 while True:
     print(game_title)
 
     print("Your HP:", hero_hp, hero_hp * hp_bar)
     print("Gold:", "\033[93m",hero_gold,"\033[0m")
+    print(border * 130)
+    print("\n\033[96m░░░░░░███████ ]▄▄▄▄▄▄▄▄      \033[0m                                            \033[91m     ▄▄▄▄▄▄▄▄[ ███████░░░░░░\033[0m")
+    print("\033[96m ▂▄▅█████████▅▄▃▂       \033[0m                                             \033[91m             ▂▃▄▅█████████▅▄▂\033[0m")
+    print("\033[96m[███████████████████].      \033[0m                                             \033[91m     .[███████████████████]\033[0m")
+    print("\033[96m   ◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤.. \033[0m                                             \033[91m              ..◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤\033[0m\n")
+    print(border * 130)
     print("Enemy HP:", enemy_hp, enemy_hp * e_hp)
 
     print("Defeat enemy to win")
