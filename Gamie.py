@@ -18,6 +18,7 @@ def attack_hero(hero_hp, damage, defense):
     return hero_hp - final_damage
 
 
+
 def gold_hero(hero_gold):
     return hero_gold + 5
 
@@ -64,7 +65,8 @@ while True:
     print("2. Farm")
     print("3. Shop")
     print("4. Attributes")
-    print("5. Run")
+    print("5. Inventory")
+    print("6. Run")
 
     action = input("> ")
 
@@ -148,9 +150,23 @@ while True:
         print("Enemy Attack: ",enemy_attack)
 
     
-    # takbo hanggat may lupa
+    # Inventory will print the baught item and enumerate them
     elif action == "5":
-        print("You ran away!")
+        print(border * 130)
+        print("=====INVENTORY=====")
+
+        if len(inventory) == 0:
+            print("Inventory is empty.")
+        
+        else:
+            for i, item in enumerate(inventory, start=1):
+                print(f"{i}.{item}")
+        print(border * 130)
+
+    
+    #WHY ARE RUNNING
+    elif action == "6":
+        print("You Ran Away")
         break
 
     else:
