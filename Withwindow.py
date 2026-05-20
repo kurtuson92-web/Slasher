@@ -3,7 +3,6 @@ import random
 
 bg_colors = ["Yellow","Blue","Green","Orange","Red","Indigo","Violet"]
 number = 0
-pixel_size = 10
 
 
 window = Tk()
@@ -23,11 +22,14 @@ Game_name = Label(window,
 )
 def change_colors():
     Game_name.config(fg=random.choice(bg_colors))
-    Game_name.after(400, change_colors)
+    Game_name.after(700, change_colors)
 
 change_colors()
 
 #ENTER Game
+
+
+
 def entering():
     Game_name.config(text="TANK BLAST",)
 
